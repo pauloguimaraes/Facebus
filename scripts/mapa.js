@@ -1,21 +1,28 @@
 function showMap(token) {
-    alert(token);
     mapboxgl.accessToken = token;
+
+    // Instanciando o mapa
     var mapa = new mapboxgl.Map({
         container: 'mapa',
         style: 'mapbox://styles/mapbox/streets-v10',
-        zoom: 9
+        zoom: 15
     });
-    mapa.addControl(new mapboxgl.NavigationControl());
-    mapa.addControl(new MapboxGeocoder({
-        accessToken: mapboxgl.accessToken
-    }));
 
+    // Adicionando controles de navegação
+    mapa.addControl(new mapboxgl.NavigationControl());
+
+    // Adicionando a barra de pesquisa
+    var geocoder = new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken
+    });
+    document.getElementById('geocoder').appendChild(geocoder.onAdd(mapa));
+
+    // Centralizando na localização atual
     navigator.geolocation.getCurrentPosition(function(location) {
         mapa.flyTo({
             center: [
-                location.coords.latitude,
-                location.coords.longitude
+                location.coords.longitude,
+                location.coords.latitude
             ]
         });
     });
