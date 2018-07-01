@@ -27,7 +27,7 @@
         <div id='mapa' class='mapa'></div>
         <?php
             $token_map = file_get_contents('/var/www/html/bustop/auth/mapbox.txt');
-            echo "<script>showMap('" . $token_map ."');</script>"
+            echo "<script>showMap('" . $token_map ."');</script>";
         ?>
     </body>
 </html>
