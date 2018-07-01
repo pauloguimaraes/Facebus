@@ -22,7 +22,7 @@
         <div id='geocoder' class='geocoder searchBox'></div>
         <div id='mapa' class='mapa'></div>
         <script>
-            showMap('pk.eyJ1IjoicGhmZ3VpbWEiLCJhIjoiY2pqMXdqZXhyMHgyaTNxdDR1ejJsazJvMCJ9.j5VLrwsv15MWeKuj_bwaqg');
+            showMap('<SEU_TOKEN>');
         </script>
     </body>
 </html>
