@@ -25,8 +25,9 @@
             <input type='checkbox' id='onibus' value='onibus' /><label for='onibus'>Ônibus</label>
         </div>
         <div id='mapa' class='mapa'></div>
-        <script>
-            showMap('pk.eyJ1IjoicGhmZ3VpbWEiLCJhIjoiY2pqMXdqZXhyMHgyaTNxdDR1ejJsazJvMCJ9.j5VLrwsv15MWeKuj_bwaqg');
-        </script>
+        <?php
+            $token_map = file_get_contents('/var/www/html/bustop/auth/mapbox.txt');
+            echo "<script>showMap('" . $token_map ."');</script>"
+        ?>
     </body>
 </html>

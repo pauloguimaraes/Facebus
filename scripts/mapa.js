@@ -1,3 +1,22 @@
+/**
+ * Exercício de programação - Soluções Web baseadas em Software Livre
+ * Professor Doutor
+ * 
+ * Autores:
+ * Lucas
+ * Matheus
+ * Paulo
+ * 
+ * Funções JavaScript relacionadas ao mapa
+ */
+
+
+ 
+/**
+ * Apresenta o mapa do MapBox, adicionando navegação e Geocoder
+ * 
+ * @param {*} token - Token do MapBox
+ */
 function showMap(token) {
     mapboxgl.accessToken = token;
 
@@ -26,6 +45,14 @@ function showMap(token) {
     });
 }
 
+
+
+/**
+ * Centraliza o mapa em determinada localização
+ * 
+ * @param {*} mapa Mapa onde a localização vai ser centralizada
+ * @param {*} location Posição a ser centralizada
+ */
 function flyToCurrentLocation(mapa, location) {
     mapa.flyTo({
         center: [
@@ -35,6 +62,13 @@ function flyToCurrentLocation(mapa, location) {
     });
 }
 
+
+
+/**
+ * Centraliza o mapa na Catedral da Sé
+ * 
+ * @param {*} mapa Mapa que será centralizado
+ */
 function flyToSeCathedral(mapa) {
     mapa.flyTo({
         center: [
