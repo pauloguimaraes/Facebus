@@ -20,9 +20,13 @@
     </head>
     <body>
         <div id='geocoder' class='geocoder searchBox'></div>
+        <div id='opcoes' style='width: 90%; height: 50px; margin-left: 5%; margin-top: 20px'>
+            <input type='checkbox' id='paradas' value='paradas' /><label for='paradas'>Paradas</label>
+            <input type='checkbox' id='onibus' value='onibus' /><label for='onibus'>Ônibus</label>
+        </div>
         <div id='mapa' class='mapa'></div>
         <script>
-            showMap('<SEU_TOKEN>');
+            showMap('pk.eyJ1IjoicGhmZ3VpbWEiLCJhIjoiY2pqMXdqZXhyMHgyaTNxdDR1ejJsazJvMCJ9.j5VLrwsv15MWeKuj_bwaqg');
         </script>
     </body>
 </html>

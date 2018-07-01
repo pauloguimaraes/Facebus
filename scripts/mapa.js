@@ -19,11 +19,27 @@ function showMap(token) {
 
     // Centralizando na localização atual
     navigator.geolocation.getCurrentPosition(function(location) {
-        mapa.flyTo({
-            center: [
-                location.coords.longitude,
-                location.coords.latitude
-            ]
-        });
+        flyToCurrentLocation(mapa, location);
+    }, 
+    function() {
+        flyToSeCathedral(mapa);
+    });
+}
+
+function flyToCurrentLocation(mapa, location) {
+    mapa.flyTo({
+        center: [
+            location.coords.longitude,
+            location.coords.latitude
+        ]
+    });
+}
+
+function flyToSeCathedral(mapa) {
+    mapa.flyTo({
+        center: [
+            -46.6343,
+            -23.5513
+        ]
     });
 }
