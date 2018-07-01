@@ -12,6 +12,8 @@
 
 
  
+var onibus = []
+
 /**
  * Apresenta o mapa do MapBox, adicionando navegação e Geocoder
  * 
@@ -111,9 +113,10 @@ function getCurrentBusPositions(mapa){
         complete: function(data) {
             for(const[key, value] of Object.entries(dict)) {
                 try {
-                    new mapboxgl.Marker()
-                    .setLngLat(dict[key])
-                    .addTo(mapa);
+                    var marker = new mapboxgl.Marker()
+                        .setLngLat(dict[key])
+                        .addTo(mapa);
+                    onibus.push(marker);
                 }
                 catch(err) {
                     alert(err);
@@ -123,10 +126,32 @@ function getCurrentBusPositions(mapa){
     });
 }
 
+
+
+function removeAllOnibus(onibus) {
+    for(var i = 0; i < onibus.length; i++)
+    {
+        onibus[i].remove();
+    }
+    
+    while(onibus.length > 0) 
+    {
+        onibus.pop();
+    }
+}
+
+
+
 function toggleOnibus(element, mapa) {
     element.checked = !element.checked
 
-    if(element.checked) {
+    alert(onibus.length);
+    if(onibus.length <= 0)
+    {
         getCurrentBusPositions(mapa);
+    }
+    else
+    {
+        removeAllOnibus(onibus);
     }
 }
