@@ -1,11 +1,5 @@
 <?php
 
-$x_topo = $_GET['x0'];
-$y_topo = $_GET['y0'];
-
-$x_baixo = $_GET['x1'];
-$y_baixo = $_GET['y1'];
-
 $URL = 'http://api.olhovivo.sptrans.com.br/v2.1';
 $cookie = '/tmp/cookie.txt';
 
@@ -20,6 +14,8 @@ $resultado = curl_exec($ch);
 
 curl_close($ch);
 
-return $resultado;
+$resultado = json_decode($resultado)->l;
+$resultado = json_encode($resultado);
+echo $resultado;
 
 ?>

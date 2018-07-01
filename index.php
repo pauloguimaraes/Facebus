@@ -15,8 +15,9 @@
         <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
 
         <!-- JavaScript e CSS customizados -->
-        <script src='scripts/mapa.js'></script>
         <link rel='stylesheet' href='./styles/index.css' type='text/css' />
+        <script src='scripts/jquery-3.3.1.js'></script>
+        <script src='scripts/mapa.js'></script>
     </head>
     <body>
         <div id='geocoder' class='geocoder searchBox'></div>
@@ -29,5 +30,6 @@
             $token_map = file_get_contents('/var/www/html/bustop/auth/mapbox.txt');
             echo "<script>showMap('" . $token_map ."');</script>";
         ?>
+        <div id='ha'></div>
     </body>
 </html>

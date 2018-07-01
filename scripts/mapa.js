@@ -43,6 +43,10 @@ function showMap(token) {
     function() {
         flyToSeCathedral(mapa);
     });
+
+    document.getElementById('onibus').addEventListener('change', function(element) {
+        toggleOnibus(element, mapa);
+    });
 }
 
 
@@ -76,4 +80,53 @@ function flyToSeCathedral(mapa) {
             -23.5513
         ]
     });
+}
+
+
+
+function toggleParadas(element) {
+    element.checked = !element.checked
+}
+
+
+
+function getCurrentBusPositions(mapa){
+    var dict = [];
+    $.ajax({
+        type: 'GET',
+        url: 'http://localhost/bustop/sptrans/getOnibus.php',
+        dataType: 'json',
+        success: function(html) {
+            // document.getElementById('ha').innerHTML = JSON.stringify(html);
+            $.each(html, function(key, value) {
+                var pos = value.vs;
+                $.each(pos, function(k, v) {
+                    dict[value.c + ' - ' + pos[k].p] = [pos[k].px, pos[k].py]
+                });
+            });
+        },
+        error: function(xhr, status, error) {
+            alert(xhr.responseText);
+        },
+        complete: function(data) {
+            for(const[key, value] of Object.entries(dict)) {
+                try {
+                    new mapboxgl.Marker()
+                    .setLngLat(dict[key])
+                    .addTo(mapa);
+                }
+                catch(err) {
+                    alert(err);
+                }
+            }
+        }
+    });
+}
+
+function toggleOnibus(element, mapa) {
+    element.checked = !element.checked
+
+    if(element.checked) {
+        getCurrentBusPositions(mapa);
+    }
 }
