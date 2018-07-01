@@ -99,11 +99,10 @@ function getCurrentBusPositions(mapa){
         url: 'http://localhost/bustop/sptrans/getOnibus.php',
         dataType: 'json',
         success: function(html) {
-            // document.getElementById('ha').innerHTML = JSON.stringify(html);
             $.each(html, function(key, value) {
                 var pos = value.vs;
                 $.each(pos, function(k, v) {
-                    dict[value.c + ' - ' + pos[k].p] = [pos[k].px, pos[k].py]
+                    dict[value.c + ',' + pos[k].p + ','  + value.lt0 + ' - ' + value.lt1] = [pos[k].px, pos[k].py]
                 });
             });
         },
@@ -113,8 +112,14 @@ function getCurrentBusPositions(mapa){
         complete: function(data) {
             for(const[key, value] of Object.entries(dict)) {
                 try {
+                    var splitted = key.split(',');
+                    var numero_linha = splitted[0];
+                    var descricao_linha = splitted[2];
+
                     var marker = new mapboxgl.Marker()
                         .setLngLat(dict[key])
+                        .setPopup(new mapboxgl.Popup({ offset: 25})
+                        .setHTML('<h3>' + numero_linha + '</h3><p>' + descricao_linha + '</p>'))
                         .addTo(mapa);
                     onibus.push(marker);
                 }
@@ -145,7 +150,6 @@ function removeAllOnibus(onibus) {
 function toggleOnibus(element, mapa) {
     element.checked = !element.checked
 
-    alert(onibus.length);
     if(onibus.length <= 0)
     {
         getCurrentBusPositions(mapa);
