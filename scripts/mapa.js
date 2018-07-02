@@ -49,6 +49,10 @@ function showMap(token) {
     document.getElementById('onibus').addEventListener('change', function(element) {
         toggleOnibus(element, mapa);
     });
+
+    document.getElementById('atualizar_onibus').addEventListener('click', function(element) {
+        atualizarMapa(element, mapa);
+    });
 }
 
 
@@ -91,12 +95,29 @@ function toggleParadas(element) {
 }
 
 
+function atualizarMapa(element, mapa) {
+    if(onibus.length > 0)
+    {
+        removeAllOnibus(onibus);
+        getCurrentBusPositions(mapa);
+    }
+}
+
 
 function getCurrentBusPositions(mapa){
+    /*
+    var noroeste = mapa.getBounds().getNorthWest();
+    var sudeste = mapa.getBounds().getSouthEast();
+    
+    var noroeste_x = noroeste.toArray()[0];
+    var noroeste_y = noroeste.toArray()[1];
+    var sudeste_x = sudeste.toArray()[0];
+    var sudeste_y = sudeste.toArray()[1];
+    */
     var dict = [];
     $.ajax({
         type: 'GET',
-        url: 'http://localhost/bustop/sptrans/getOnibus.php',
+        url: 'http://localhost/bustop/sptrans/getOnibus.php?' /* xh=' + noroeste_x + '&yh=' + noroeste_y + '&xb=' + sudeste_x + '&yb=' + sudeste_y + ''*/,
         dataType: 'json',
         success: function(html) {
             $.each(html, function(key, value) {
@@ -115,8 +136,11 @@ function getCurrentBusPositions(mapa){
                     var splitted = key.split(',');
                     var numero_linha = splitted[0];
                     var descricao_linha = splitted[2];
+                    
+                    var el = document.createElement('div');
+                    el.className = 'bus_marker';
 
-                    var marker = new mapboxgl.Marker()
+                    var marker = new mapboxgl.Marker(el)
                         .setLngLat(dict[key])
                         .setPopup(new mapboxgl.Popup({ offset: 25})
                         .setHTML('<h3>' + numero_linha + '</h3><p>' + descricao_linha + '</p>'))
@@ -127,6 +151,8 @@ function getCurrentBusPositions(mapa){
                     alert(err);
                 }
             }
+            
+            document.getElementById('atualizar_onibus').style.visibility = 'visible';
         }
     });
 }
@@ -143,6 +169,8 @@ function removeAllOnibus(onibus) {
     {
         onibus.pop();
     }
+
+    document.getElementById('atualizar_onibus').style.visibility = 'none';
 }
 
 

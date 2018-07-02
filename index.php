@@ -22,8 +22,13 @@
     <body>
         <div id='geocoder' class='geocoder searchBox'></div>
         <div id='opcoes' style='width: 90%; height: 50px; margin-left: 5%; margin-top: 20px'>
-            <input type='checkbox' id='paradas' value='paradas' /><label for='paradas'>Paradas</label>
-            <input type='checkbox' id='onibus' value='onibus' /><label for='onibus'>Ônibus</label>
+            <div id='opcoes_left' style='float: left'>
+                <input type='checkbox' id='paradas' value='paradas' /><label for='paradas'>Paradas</label>
+                <input type='checkbox' id='onibus' value='onibus' /><label for='onibus'>Ônibus</label>
+            </div>
+            <div id=opcoes_right style='float: left; margin-left:5%;'>
+                <input type='button' id='atualizar_onibus' value='Atualizar' style='visibility: hidden;' />
+            </div>
         </div>
         <div id='mapa' class='mapa'></div>
         <?php
