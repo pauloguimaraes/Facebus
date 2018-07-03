@@ -1,17 +1,21 @@
+/* Caixa de busca */
 .searchBox {
-    width:          60%;
-    height:         50px;
-    margin-left:    5%;
-    margin-top:     5%;
-    margin-bottom:  5px;
+    width:  60%;
+    height: 50px;
 }
 
+
+
+/* Mapa */
 .mapa {
     width:      90%;
     height:     70%;
     margin-left:5%;
 }
 
+
+
+/* Marcador de ônibus */
 .bus_marker {
     background-image:   url('images/onibus.png');
     background-size:    30px 30px;
@@ -21,4 +25,38 @@
     height:             50px;
     border-radius:      50%;
     cursor:             pointer;
+}
+
+
+
+/* Caixa de conteúdo no topo da página */
+.content_box {
+    width:      90%;
+    margin-top: 5%;
+    margin-left:5%;
+    display:    inline-block;
+}
+
+
+
+/* Caixa de opções */
+.opcoes {
+    height:     50px;
+    margin-top: 10px;
+}
+
+
+
+/* Caixa de nomes */
+.nomes {
+    float:      right;
+    text-align: left;
+}
+
+
+
+/* Botão atualizar */
+.btn_atualizar {
+    float:      left;
+    margin-left:25px;
 }

@@ -289,7 +289,7 @@ function removeAllOnibus(onibus)
     }
 
     // Esconde o botão de atualizar
-    document.getElementById('atualizar_onibus').style.visibility = 'none';
+    document.getElementById('atualizar_onibus').style.visibility = 'hidden';
 }
 
 

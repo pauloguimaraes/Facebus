@@ -5,7 +5,7 @@
 // $xb = $_GET['xb'];
 // $yb = $_GET['yb'];
 
-$upd = $_GET['update'];
+// $upd = $_GET['update'];
 
 $URL = 'http://api.olhovivo.sptrans.com.br/v2.1';
 $cookie = '/tmp/cookie.txt';

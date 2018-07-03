@@ -20,14 +20,27 @@
         <script src='scripts/mapa.js'></script>
     </head>
     <body>
-        <div id='geocoder' class='geocoder searchBox'></div>
-        <div id='opcoes' style='width: 90%; height: 50px; margin-left: 5%; margin-top: 20px'>
-            <div id='opcoes_left' style='float: left'>
-                <input type='checkbox' id='paradas' value='paradas' /><label for='paradas'>Paradas</label>
-                <input type='checkbox' id='onibus' value='onibus' /><label for='onibus'>Ônibus</label>
+        <!-- Caixa no topo contendo GeoCoder, opções, botão atualizar e nomes dos integrantes -->
+        <div class='content_box'>
+            <!-- Caixa contendo GeoCoder e opções -->
+            <div style='float:left;'>
+                <div id='geocoder' class='geocoder searchBox'></div>
+                <div id='opcoes' class='opcoes'>
+                    <div id='opcoes_left'>
+                        <input type='checkbox' id='paradas' value='paradas' /><label for='paradas'>Paradas</label>
+                        <input type='checkbox' id='onibus' value='onibus' /><label for='onibus'>Ônibus</label>
+                    </div>
+                </div>
             </div>
-            <div id=opcoes_right style='float: left; margin-left:5%;'>
+            <!-- Botão atualizar -->
+            <div id='opcoes_center' class='btn_atualizar'>
                 <input type='button' id='atualizar_onibus' value='Atualizar' style='visibility: hidden;' />
+            </div>
+            <!-- Nomes dos integrantes -->
+            <div id='opcoes_right' class='nomes'>
+                <p>Lucas Borelli Amaral - 9360951<br />
+                Mateus Angelo Castro - 9377532<br/>
+                Paulo Henrique Freitas Guimarães - 9390361</p>
             </div>
         </div>
         <div id='mapa' class='mapa'></div>
