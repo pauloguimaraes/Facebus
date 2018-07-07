@@ -1,5 +1,5 @@
 <?php
-$chave_api = file_get_contents('/var/www/html/bustop/auth/sptrans.txt');
+$chave_api = file_get_contents('https://http://ec2-52-15-33-123.us-east-2.compute.amazonaws.com/BuStop/auth/sptrans.txt');
 $URL = 'http://api.olhovivo.sptrans.com.br/v2.1';
 $cookie = '/tmp/cookie.txt';
 

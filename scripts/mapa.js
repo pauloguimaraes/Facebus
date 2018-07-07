@@ -14,6 +14,7 @@
  
 var onibus = [];
 var paradas = [];
+var URL_Site = 'https://http://ec2-52-15-33-123.us-east-2.compute.amazonaws.com/BuStop/';
 
 /**
  * Apresenta o mapa do MapBox, adicionando navegação e Geocoder
@@ -132,7 +133,7 @@ function getParadas(mapa)
     var dict = [];
     $.ajax({
         type: 'GET',
-        url: 'http://localhost/bustop/sptrans/getParadas.php?',
+        url: URL_Site + 'sptrans/getParadas.php?',
         dataType: 'json',
 
         // Com sucesso na chamada
@@ -194,7 +195,7 @@ function getCurrentBusPositions(mapa)
     var dict = [];
     $.ajax({
         type: 'GET',
-        url: 'http://localhost/bustop/sptrans/getOnibus.php?' /* xh=' + noroeste_x + '&yh=' + noroeste_y + '&xb=' + sudeste_x + '&yb=' + sudeste_y + ''*/,
+        url: URL_Site + 'sptrans/getOnibus.php?' /* xh=' + noroeste_x + '&yh=' + noroeste_y + '&xb=' + sudeste_x + '&yb=' + sudeste_y + ''*/,
         dataType: 'json',
 
         // Requisição ser bem sucedida
