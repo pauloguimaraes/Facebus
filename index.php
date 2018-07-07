@@ -1,5 +1,5 @@
 <?php
-    require_once 'BuStop/auth/auth_sptrans.php'
+    require_once './BuStop/auth/auth_sptrans.php'
 ?>
 
 <html>
@@ -15,9 +15,9 @@
         <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
 
         <!-- JavaScript e CSS customizados -->
-        <link rel='stylesheet' href='BuStop/styles/index.css' type='text/css' />
-        <script src='BuStop/scripts/jquery-3.3.1.js'></script>
-        <script src='BuStop/scripts/mapa.js'></script>
+        <link rel='stylesheet' href='./BuStop/styles/index.css' type='text/css' />
+        <script src='./BuStop/scripts/jquery-3.3.1.js'></script>
+        <script src='./BuStop/scripts/mapa.js'></script>
     </head>
     <body>
         <!-- Caixa no topo contendo GeoCoder, opções, botão atualizar e nomes dos integrantes -->
