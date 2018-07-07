@@ -1,5 +1,5 @@
 <?php
-    require_once './BuStop/auth/auth_sptrans.php'
+    require_once './auth/auth_sptrans.php'
 ?>
 
 <html>
