@@ -14,7 +14,7 @@
  
 var onibus = [];
 var paradas = [];
-var URL_Site = 'http://http://ec2-52-15-33-123.us-east-2.compute.amazonaws.com/BuStop/';
+var URL_Site = 'http://ec2-52-15-33-123.us-east-2.compute.amazonaws.com/';
 
 /**
  * Apresenta o mapa do MapBox, adicionando navegação e Geocoder
