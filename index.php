@@ -16,7 +16,7 @@ require_once './sptrans/auth_sptrans.php'
 
 <html>
     <head>
-        <title>BuStop</title>
+        <title>Facebus</title>
 
         <!-- Referências do MapBox -->
         <script src='https://api.mapbox.com/mapbox-gl-js/v0.46.0/mapbox-gl.js'></script>
@@ -27,9 +27,9 @@ require_once './sptrans/auth_sptrans.php'
         <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v2.2.0/mapbox-gl-geocoder.css' type='text/css' />
 
         <!-- JavaScript e CSS customizados -->
-        <link rel='stylesheet' href='./styles/index.css' type='text/css' />
-        <script src='./scripts/jquery-3.3.1.js'></script>
-        <script src='./scripts/mapa.js'></script>
+        <link rel='stylesheet' href='./Facebus/styles/index.css' type='text/css' />
+        <script src='./Facebus/scripts/jquery-3.3.1.js'></script>
+        <script src='./Facebus/scripts/mapa.js'></script>
     </head>
     <body>
         <!-- Caixa no topo contendo GeoCoder, opções, botão atualizar e nomes dos integrantes -->
