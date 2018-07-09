@@ -57,7 +57,7 @@ require_once './sptrans/auth_sptrans.php'
         </div>
         <div id='mapa' class='mapa'></div>
         <?php
-            $token_map = file_get_contents('http://ec2-52-15-33-123.us-east-2.compute.amazonaws.com/BuStop/auth/mapbox.txt');
+            $token_map = file_get_contents('http://ec2-52-15-33-123.us-east-2.compute.amazonaws.com/Facebus/auth/mapbox.txt');
             echo "<script>showMap('" . $token_map ."');</script>";
         ?>
     </body>
