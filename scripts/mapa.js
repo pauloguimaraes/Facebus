@@ -1,20 +1,22 @@
 /**
- * Exercício de programação - Soluções Web baseadas em Software Livre
- * Professor Doutor
- * 
- * Autores:
- * Lucas
- * Matheus
- * Paulo
- * 
- * Funções JavaScript relacionadas ao mapa
- */
+ ** Exercício de programação - Soluções Web baseadas em Software Livre
+ ** Professor Doutor
+ ** 
+ ** Autores:
+ ** Lucas
+ ** Mateus
+ ** Paulo Henrique Freitas Guimarães - 9390361
+ ** 
+ ** Funções JavaScript relacionadas ao mapa
+ **/
 
 
  
 var onibus = [];
 var paradas = [];
-var URL_Site = '//ec2-52-15-33-123.us-east-2.compute.amazonaws.com/BuStop/';
+var URL_Site = '//ec2-52-15-33-123.us-east-2.compute.amazonaws.com/Facebus/';
+
+
 
 /**
  * Apresenta o mapa do MapBox, adicionando navegação e Geocoder
@@ -117,7 +119,7 @@ function atualizarMapa(mapa)
     if(onibus.length > 0)
     {
         removeAllOnibus(onibus);
-        getCurrentBusPositions(mapa);
+        getCurrentBusPositions(mapa, true);
     }
 }
 
@@ -181,21 +183,20 @@ function getParadas(mapa)
  * 
  * @param {*} mapa Mapa onde os ônibus serão apresentados
  */
-function getCurrentBusPositions(mapa)
+function getCurrentBusPositions(mapa, update)
 {
-    /*
-    var noroeste = mapa.getBounds().getNorthWest();
-    var sudeste = mapa.getBounds().getSouthEast();
-    
-    var noroeste_x = noroeste.toArray()[0];
-    var noroeste_y = noroeste.toArray()[1];
-    var sudeste_x = sudeste.toArray()[0];
-    var sudeste_y = sudeste.toArray()[1];
-    */
     var dict = [];
+
+    // Se deve-se atualizar
+    var url_a_buscar = URL_Site + 'sptrans/getOnibus.php'
+    if(update)
+    {
+        url_a_buscar = url_a_buscar + '?update=true'
+    }
+
     $.ajax({
         type: 'GET',
-        url: URL_Site + 'sptrans/getOnibus.php' /* xh=' + noroeste_x + '&yh=' + noroeste_y + '&xb=' + sudeste_x + '&yb=' + sudeste_y + ''*/,
+        url: url_a_buscar,
         dataType: 'json',
 
         // Requisição ser bem sucedida
@@ -335,7 +336,7 @@ function toggleOnibus(element, mapa)
     if(onibus.length <= 0)
     {
         // Adiciona
-        getCurrentBusPositions(mapa);
+        getCurrentBusPositions(mapa, false);
     }
     // Se tem ônibus na lista
     else
