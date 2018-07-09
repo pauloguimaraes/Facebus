@@ -1,10 +1,10 @@
 /**
  ** Exercício de programação - Soluções Web baseadas em Software Livre
- ** Professor Doutor
+ ** Professor Doutor Osvaldo Gogliano Sobrinho
  ** 
  ** Autores:
- ** Lucas
- ** Mateus
+ ** Lucas Borelli Amaral - 9360951
+ ** Mateus Angelo Castro - 9377532
  ** Paulo Henrique Freitas Guimarães - 9390361
  ** 
  ** Funções JavaScript relacionadas ao mapa
@@ -12,6 +12,7 @@
 
 
  
+// Variáveis
 var onibus = [];
 var paradas = [];
 var URL_Site = '//ec2-52-15-33-123.us-east-2.compute.amazonaws.com/Facebus/';

@@ -11,7 +11,7 @@
  ** Página principal
  **/
 
-require_once './sptrans/auth_sptrans.php'
+require_once './sptrans/authSptrans.php'
 ?>
 
 <html>
